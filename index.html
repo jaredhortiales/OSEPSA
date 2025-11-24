@@ -1090,64 +1090,69 @@
       }
     }
 
-    @media (max-width: 900px) {
-      .nav {
-        flex-wrap: wrap;
-      }
+    /* A partir de aquí, en pantallas menores a 1400px usamos menú hamburguesa */
+@media (max-width: 1400px) {
+  .nav {
+    flex-wrap: wrap;
+  }
 
-      .nav-right {
-        flex: 1;
-        justify-content: flex-end;
-      }
+  .nav-right {
+    flex: 1;
+    justify-content: flex-end;
+  }
 
-      .nav-links {
-        position: absolute;
-        top: 64px;
-        left: 0;
-        right: 0;
-        background: #ffffff;
-        padding: 0.6rem 1.25rem 0.9rem;
-        flex-direction: column;
-        gap: 0.4rem;
-        border-bottom: 1px solid rgba(148,163,184,0.35);
-        transform: translateY(-130%);
-        opacity: 0;
-        pointer-events: none;
-        transition: var(--transition);
-      }
+  .nav-links {
+    position: absolute;
+    top: 64px;
+    left: 0;
+    right: 0;
+    background: #ffffff;
+    padding: 0.7rem 1.25rem 1rem;
+    flex-direction: column;
+    gap: 0.5rem;
+    border-bottom: 1px solid rgba(148,163,184,0.35);
+    transform: translateY(-130%);
+    opacity: 0;
+    pointer-events: none;
+    transition: var(--transition);
+    z-index: 900;
+  }
 
-      .nav-links.open {
-        transform: translateY(0);
-        opacity: 1;
-        pointer-events: auto;
-      }
+  .nav-links.open {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+  }
 
-      .nav-actions {
-        display: none;
-      }
+  /* Ocultamos los botones de la derecha y dejamos solo el icono hamburguesa */
+  .nav-actions {
+    display: none;
+  }
 
-      .nav-toggle {
-        display: flex;
-      }
+  .nav-toggle {
+    display: flex;
+  }
 
-      .hero-grid,
-      #quienes-somos .content-grid,
-      .memberships-grid,
-      .two-column,
-      .form-grid,
-      .provider-layout,
-      .cart-panel {
-        grid-template-columns: minmax(0, 1fr);
-      }
+  /* El resto del layout se hace de una columna en pantallas más pequeñas */
+  .hero-grid,
+  #quienes-somos .content-grid,
+  .memberships-grid,
+  .two-column,
+  .form-grid,
+  .provider-layout,
+  .cart-panel {
+    grid-template-columns: minmax(0, 1fr);
+  }
 
-      .memberships-grid {
-        grid-template-columns: minmax(0, 1fr);
-      }
+  .memberships-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
 
-      .hero {
-        padding-top: 2rem;
-      }
-    }
+  .hero {
+    padding-top: 2rem;
+  }
+}
+
 
     @media (max-width: 600px) {
       .hero-title {
@@ -2469,4 +2474,5 @@
   </script>
 </body>
 </html>
+
 
