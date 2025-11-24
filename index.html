@@ -4,11 +4,13 @@
   <meta charset="UTF-8" />
   <title>OSEPSA Health Group | Servicios de Salud Prepagados</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="OSEPSA Health Group - Servicios de salud prepagados, membresías médicas y red de prestadores en Tijuana y comunidad hispana en Estados Unidos.">
+  <meta name="description" content="OSEPSA Health Group ofrece servicios de salud prepagados mediante membresías médicas corporativas para familias y comunidad hispana.">
+
   <!-- Fuente -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
   <!-- Leaflet (mapas) -->
   <link
     rel="stylesheet"
@@ -16,11 +18,12 @@
     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
     crossorigin=""
   />
+
   <style>
     :root {
-      --primary: #1191EC;     /* azul claro del logo */
-      --secondary: #2F2484;   /* azul oscuro del logo */
-      --accent: #F6050C;      /* rojo del logo */
+      --primary: #1191EC;     /* azul claro logo */
+      --secondary: #2F2484;   /* azul oscuro logo */
+      --accent: #F6050C;      /* rojo logo */
       --bg: #f5f7fb;
       --text: #1f2933;
       --bronze: #b46a1c;
@@ -35,6 +38,11 @@
       box-sizing: border-box;
       margin: 0;
       padding: 0;
+    }
+
+    html, body {
+      width: 100%;
+      overflow-x: hidden; /* evita que la web sobresalga horizontalmente */
     }
 
     body {
@@ -55,15 +63,14 @@
       text-decoration: none;
     }
 
-    /* Contenedor general */
     .container {
       width: 100%;
-      max-width: 1160px;
+      max-width: 1180px;
       margin: 0 auto;
       padding: 0 1.25rem;
     }
 
-    /* Header y navegación */
+    /* HEADER / NAVBAR */
     header {
       position: sticky;
       top: 0;
@@ -76,26 +83,41 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0.75rem 0;
+      padding: 0.6rem 0;
+      gap: 1rem;
     }
 
     .nav-left {
       display: flex;
-      gap: 0.75rem;
+      gap: 0.7rem;
       align-items: center;
+      min-width: 0;
     }
 
-    .nav-logo {
-      width: 56px;
-      height: 56px;
+    .nav-logo-frame {
+      width: 72px;
+      height: 72px;
       border-radius: 50%;
-      overflow: hidden;
       border: 3px solid var(--primary);
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #ffffff;
+      flex-shrink: 0;
+    }
+
+    .navbar-logo {
+      height: 64px;   /* tamaño medio solicitado */
+      width: auto;
+      object-fit: contain;
     }
 
     .nav-brand {
       display: flex;
       flex-direction: column;
+      gap: 0.05rem;
+      white-space: nowrap;
     }
 
     .nav-brand span:first-child {
@@ -110,18 +132,27 @@
       color: #64748b;
     }
 
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      min-width: 0;
+    }
+
     .nav-links {
       display: flex;
       gap: 0.9rem;
-      font-size: 0.88rem;
+      font-size: 0.86rem;
       font-weight: 500;
+      flex-wrap: nowrap;
     }
 
     .nav-links a {
-      padding: 0.4rem 0.6rem;
+      padding: 0.35rem 0.55rem;
       border-radius: 999px;
       transition: var(--transition);
       color: #475569;
+      white-space: nowrap;
     }
 
     .nav-links a:hover {
@@ -129,7 +160,7 @@
       color: var(--secondary);
     }
 
-    .nav-cta {
+    .nav-actions {
       display: flex;
       align-items: center;
       gap: 0.5rem;
@@ -138,8 +169,8 @@
     .btn {
       border: none;
       border-radius: 999px;
-      padding: 0.55rem 1.1rem;
-      font-size: 0.9rem;
+      padding: 0.5rem 1.1rem;
+      font-size: 0.86rem;
       font-weight: 600;
       cursor: pointer;
       display: inline-flex;
@@ -187,34 +218,35 @@
       border-radius: 999px;
     }
 
-    /* Hero */
+    /* HERO */
     .hero {
-      padding: 2.5rem 0 1.5rem;
-      background: radial-gradient(circle at top left, rgba(17,145,236,0.12), transparent 42%),
-                  radial-gradient(circle at bottom right, rgba(47,36,132,0.14), transparent 50%);
+      padding: 2.3rem 0 1.8rem;
+      background:
+        radial-gradient(circle at top left, rgba(17,145,236,0.12), transparent 42%),
+        radial-gradient(circle at bottom right, rgba(47,36,132,0.14), transparent 50%);
     }
 
     .hero-grid {
       display: grid;
-      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
-      gap: 2.5rem;
+      grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+      gap: 2.3rem;
       align-items: center;
     }
 
     .hero-kicker {
-      font-size: 0.8rem;
+      font-size: 0.78rem;
       font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 0.12em;
       color: var(--primary);
-      margin-bottom: 0.6rem;
+      margin-bottom: 0.4rem;
     }
 
     .hero-title {
       font-size: 2rem;
       line-height: 1.2;
       color: var(--secondary);
-      margin-bottom: 0.75rem;
+      margin-bottom: 0.7rem;
     }
 
     .hero-title span {
@@ -222,41 +254,44 @@
     }
 
     .hero-subtitle {
-      font-size: 0.95rem;
+      font-size: 0.94rem;
       color: #475569;
       margin-bottom: 1rem;
+      max-width: 34rem;
     }
 
     .hero-tags {
       display: flex;
       flex-wrap: wrap;
       gap: 0.4rem;
-      margin-bottom: 1.2rem;
+      margin-bottom: 1.1rem;
     }
 
     .tag {
       font-size: 0.78rem;
-      padding: 0.25rem 0.55rem;
+      padding: 0.24rem 0.6rem;
       border-radius: 999px;
       background: rgba(15,23,42,0.04);
       color: #64748b;
     }
 
+    .hero-cta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.55rem;
+    }
+
     .hero-metrics {
       display: flex;
       flex-wrap: wrap;
-      gap: 1.4rem;
+      gap: 1.3rem;
       margin-top: 1.4rem;
-    }
-
-    .metric {
-      display: flex;
-      flex-direction: column;
       font-size: 0.8rem;
       color: #64748b;
     }
 
     .metric strong {
+      display: block;
       font-size: 1.1rem;
       color: var(--secondary);
     }
@@ -274,11 +309,12 @@
       justify-content: space-between;
       align-items: center;
       margin-bottom: 0.7rem;
+      gap: 0.5rem;
     }
 
     .hero-pill {
       font-size: 0.75rem;
-      padding: 0.22rem 0.65rem;
+      padding: 0.22rem 0.6rem;
       border-radius: 999px;
       background: rgba(17,145,236,0.08);
       color: var(--secondary);
@@ -288,7 +324,7 @@
     .hero-card h3 {
       font-size: 1rem;
       color: var(--secondary);
-      margin-bottom: 0.35rem;
+      margin-bottom: 0.4rem;
     }
 
     .hero-card p {
@@ -312,7 +348,7 @@
       color: var(--secondary);
     }
 
-    /* Secciones base */
+    /* SECCIONES GENERALES */
     section {
       padding: 3rem 0;
     }
@@ -344,11 +380,11 @@
       margin: 0.4rem auto 0;
     }
 
-    /* Quiénes somos */
+    /* QUIÉNES SOMOS */
     #quienes-somos .content-grid {
       display: grid;
-      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
-      gap: 2.2rem;
+      grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+      gap: 2rem;
       align-items: start;
     }
 
@@ -415,7 +451,7 @@
       top: 0.55rem;
     }
 
-    /* Membresías */
+    /* MEMBRESÍAS */
     .memberships-grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -454,7 +490,7 @@
       top: 0.85rem;
       right: 0.9rem;
       font-size: 0.72rem;
-      padding: 0.22rem 0.5rem;
+      padding: 0.22rem 0.6rem;
       border-radius: 999px;
       background: var(--accent);
       color: #ffffff;
@@ -509,6 +545,11 @@
       color: var(--secondary);
     }
 
+    .helper-text {
+      font-size: 0.75rem;
+      color: #9ca3af;
+    }
+
     .ribbon {
       position: absolute;
       inset: 0;
@@ -522,7 +563,6 @@
     .membership-bronze .ribbon { background-image: radial-gradient(circle at top right, var(--bronze), transparent 60%); }
     .membership-silver .ribbon { background-image: radial-gradient(circle at top right, var(--silver), transparent 60%); }
     .membership-gold .ribbon { background-image: radial-gradient(circle at top right, var(--gold), transparent 60%); }
-
     .membership-bronze .membership-name { color: var(--bronze); }
     .membership-silver .membership-name { color: #6e6e6e; }
     .membership-gold .membership-name { color: var(--gold); }
@@ -532,13 +572,13 @@
       padding-inline: 0.9rem;
     }
 
-    /* Carrito */
+    /* PANEL CARRITO + CONTRATA AHORA */
     .cart-panel {
-      margin-top: 2rem;
+      margin-top: 2.2rem;
       display: grid;
       grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
       gap: 1.2rem;
-      align-items: start;
+      align-items: flex-start;
     }
 
     .cart-card {
@@ -562,13 +602,14 @@
     .cart-list {
       list-style: none;
       margin-bottom: 0.7rem;
-      max-height: 200px;
+      max-height: 220px;
       overflow-y: auto;
     }
 
     .cart-item {
-      display: flex;
-      justify-content: space-between;
+      display: grid;
+      grid-template-columns: 2.4fr 0.9fr 0.9fr;
+      gap: 0.4rem;
       align-items: center;
       font-size: 0.84rem;
       padding: 0.3rem 0;
@@ -588,22 +629,88 @@
       margin-bottom: 0.6rem;
     }
 
-    .btn-remove {
-      font-size: 0.7rem;
+    .btn-remove, .btn-qty {
       border-radius: 999px;
       border: none;
-      padding: 0.15rem 0.55rem;
-      background: rgba(248,113,113,0.15);
+      cursor: pointer;
+      transition: var(--transition);
+      font-size: 0.7rem;
+      padding: 0.15rem 0.5rem;
+    }
+
+    .btn-remove {
+      background: rgba(248,113,113,0.12);
       color: #b91c1c;
+    }
+    .btn-remove:hover { background: rgba(248,113,113,0.22); }
+
+    .btn-qty {
+      background: rgba(148,163,184,0.18);
+      color: #1f2933;
+      padding-inline: 0.35rem;
+    }
+    .btn-qty:hover { background: rgba(148,163,184,0.28); }
+
+    .qty-display {
+      font-size: 0.78rem;
+      padding: 0 0.25rem;
+    }
+
+    .cart-actions {
+      display: flex;
+      justify-content: space-between;
+      gap: 0.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .btn-secondary {
+      border-radius: 999px;
+      border: 1px solid rgba(148,163,184,0.8);
+      background: #f9fafb;
+      color: #475569;
+      padding: 0.4rem 0.9rem;
+      font-size: 0.8rem;
+      font-weight: 500;
       cursor: pointer;
       transition: var(--transition);
     }
-
-    .btn-remove:hover {
-      background: rgba(248,113,113,0.25);
+    .btn-secondary:hover {
+      background: rgba(148,163,184,0.18);
     }
 
-    /* Información general */
+    /* MINI CARRITO FLOTANTE */
+    .cart-fab {
+      position: fixed;
+      right: 1rem;
+      bottom: 1rem;
+      z-index: 1100;
+      border-radius: 999px;
+      padding: 0.6rem 1rem;
+      background: linear-gradient(135deg, var(--secondary), var(--primary));
+      color: #ffffff;
+      font-size: 0.85rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      box-shadow: 0 15px 35px rgba(15,23,42,0.4);
+      cursor: pointer;
+    }
+
+    .cart-fab span.badge {
+      min-width: 20px;
+      height: 20px;
+      border-radius: 999px;
+      background: #ffffff;
+      color: var(--secondary);
+      font-size: 0.7rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+    }
+
+    /* INFO GENERAL */
     .two-column {
       display: grid;
       grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
@@ -658,15 +765,11 @@
     }
 
     /* FAQ */
-    .faq-list {
-      margin-top: 1rem;
-    }
-
+    .faq-list { margin-top: 1rem; }
     .faq-item {
       border-bottom: 1px solid rgba(148,163,184,0.35);
       padding: 0.6rem 0;
     }
-
     .faq-question {
       display: flex;
       justify-content: space-between;
@@ -675,30 +778,24 @@
       font-size: 0.9rem;
       color: var(--secondary);
     }
-
     .faq-toggle {
       font-size: 1.1rem;
       color: #94a3b8;
     }
-
     .faq-answer {
       font-size: 0.84rem;
       color: #4b5563;
       margin-top: 0.3rem;
       display: none;
     }
+    .faq-item.active .faq-answer { display: block; }
 
-    .faq-item.active .faq-answer {
-      display: block;
-    }
-
-    /* Opiniones */
+    /* OPINIONES */
     .testimonials-wrapper {
       max-width: 720px;
       margin: 0 auto;
       position: relative;
     }
-
     .testimonial-card {
       background: #ffffff;
       border-radius: 1.1rem;
@@ -707,24 +804,20 @@
       border: 1px solid rgba(148,163,184,0.3);
       min-height: 160px;
     }
-
     .testimonial-text {
       font-size: 0.9rem;
       color: #4b5563;
       margin-bottom: 0.8rem;
     }
-
     .testimonial-author {
       font-size: 0.85rem;
       color: var(--secondary);
       font-weight: 600;
     }
-
     .testimonial-role {
       font-size: 0.78rem;
       color: #9ca3af;
     }
-
     .testimonial-nav {
       position: absolute;
       inset: 0;
@@ -733,7 +826,6 @@
       justify-content: space-between;
       pointer-events: none;
     }
-
     .testimonial-btn {
       pointer-events: auto;
       width: 30px;
@@ -750,31 +842,25 @@
       cursor: pointer;
       transition: var(--transition);
     }
-
-    .testimonial-btn:hover {
-      background: #e5f1ff;
-    }
-
+    .testimonial-btn:hover { background: #e5f1ff; }
     .testimonial-dots {
       display: flex;
       justify-content: center;
       gap: 0.4rem;
       margin-top: 0.6rem;
     }
-
     .testimonial-dot {
       width: 7px;
       height: 7px;
       border-radius: 999px;
       background: #cbd5e1;
     }
-
     .testimonial-dot.active {
       background: var(--primary);
       transform: scale(1.15);
     }
 
-    /* Formularios */
+    /* FORMULARIOS GENERALES */
     .form-grid {
       display: grid;
       grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
@@ -799,7 +885,6 @@
       margin-bottom: 0.1rem;
       display: inline-block;
     }
-
     input, select, textarea {
       width: 100%;
       border-radius: 0.6rem;
@@ -811,30 +896,22 @@
       transition: var(--transition);
       background: #ffffff;
     }
-
     input:focus, select:focus, textarea:focus {
       border-color: var(--primary);
       box-shadow: 0 0 0 1px rgba(17,145,236,0.3);
     }
-
     textarea {
       min-height: 90px;
       resize: vertical;
     }
 
-    .helper-text {
-      font-size: 0.75rem;
-      color: #9ca3af;
-    }
-
-    /* Padrón prestadores y mapa */
+    /* PADRÓN PRESTADORES Y MAPAS */
     .provider-layout {
       display: grid;
       grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
       gap: 1.4rem;
       align-items: stretch;
     }
-
     .providers-header {
       display: flex;
       gap: 0.6rem;
@@ -843,7 +920,6 @@
       margin-bottom: 0.6rem;
       flex-wrap: wrap;
     }
-
     .filter-group {
       display: flex;
       gap: 0.4rem;
@@ -851,7 +927,6 @@
       align-items: center;
       font-size: 0.8rem;
     }
-
     .provider-list {
       margin-top: 0.6rem;
       max-height: 280px;
@@ -859,7 +934,6 @@
       display: grid;
       gap: 0.6rem;
     }
-
     .provider-card {
       background: #ffffff;
       border-radius: 0.9rem;
@@ -869,20 +943,9 @@
       display: grid;
       gap: 0.15rem;
     }
-
-    .provider-card strong {
-      color: var(--secondary);
-    }
-
-    .provider-tagline {
-      font-size: 0.78rem;
-      color: #64748b;
-    }
-
-    .provider-meta {
-      font-size: 0.78rem;
-      color: #6b7280;
-    }
+    .provider-card strong { color: var(--secondary); }
+    .provider-tagline { font-size: 0.78rem; color: #64748b; }
+    .provider-meta { font-size: 0.78rem; color: #6b7280; }
 
     #providersMap, #doctorsMap {
       width: 100%;
@@ -893,28 +956,26 @@
       border: 1px solid rgba(148,163,184,0.5);
     }
 
-    /* Reservar citas */
+    /* TABLA CITAS */
     .appointments-table {
       width: 100%;
       border-collapse: collapse;
       font-size: 0.78rem;
       margin-top: 0.7rem;
     }
-
     .appointments-table th,
     .appointments-table td {
       border-bottom: 1px solid rgba(148,163,184,0.35);
       padding: 0.35rem 0.2rem;
       text-align: left;
     }
-
     .appointments-table th {
       font-weight: 600;
       color: var(--secondary);
     }
 
-    /* Modal simple */
-    .modal {
+    /* MODAL GENERAL + MODAL PAGO */
+    .modal-overlay {
       position: fixed;
       inset: 0;
       background: rgba(15,23,42,0.45);
@@ -922,45 +983,76 @@
       align-items: center;
       justify-content: center;
       z-index: 2000;
+      padding: 1rem;
     }
-
-    .modal.open {
-      display: flex;
-    }
+    .modal-overlay.open { display: flex; }
 
     .modal-content {
       background: #ffffff;
       border-radius: 1rem;
       padding: 1.1rem 1.2rem;
-      max-width: 360px;
+      max-width: 380px;
       width: 100%;
       box-shadow: 0 24px 60px rgba(15,23,42,0.45);
-      text-align: center;
     }
-
     .modal-content h3 {
       font-size: 1rem;
       color: var(--secondary);
       margin-bottom: 0.4rem;
     }
-
     .modal-content p {
       font-size: 0.85rem;
       color: #4b5563;
       margin-bottom: 0.8rem;
     }
 
-    /* Contacto */
+    .modal-footer {
+      display: flex;
+      justify-content: flex-end;
+      gap: 0.4rem;
+      margin-top: 0.5rem;
+    }
+
+    .modal-list {
+      font-size: 0.8rem;
+      color: #4b5563;
+      max-height: 160px;
+      overflow-y: auto;
+      margin-bottom: 0.6rem;
+    }
+
+    .badge-soft {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.16rem 0.45rem;
+      border-radius: 999px;
+      font-size: 0.73rem;
+      background: rgba(17,145,236,0.08);
+      color: var(--secondary);
+      font-weight: 500;
+    }
+
+    .loader {
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      border: 3px solid rgba(148,163,184,0.5);
+      border-top-color: var(--primary);
+      animation: spin 0.9s linear infinite;
+      margin: 0 auto 0.6rem;
+    }
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    /* CONTACTO */
     .contact-extra {
       font-size: 0.85rem;
       color: #4b5563;
     }
+    .contact-extra strong { color: var(--secondary); }
 
-    .contact-extra strong {
-      color: var(--secondary);
-    }
-
-    /* Footer */
+    /* FOOTER */
     footer {
       background: #0f172a;
       color: #e2e8f0;
@@ -968,7 +1060,6 @@
       margin-top: 2.5rem;
       font-size: 0.8rem;
     }
-
     .footer-grid {
       display: flex;
       flex-wrap: wrap;
@@ -976,25 +1067,67 @@
       align-items: center;
       justify-content: space-between;
     }
-
     .footer-links {
       display: flex;
       flex-wrap: wrap;
       gap: 0.8rem;
     }
-
     .footer-links a {
       color: #cbd5f5;
       font-size: 0.8rem;
     }
-
     .footer-legal {
       color: #94a3b8;
       font-size: 0.75rem;
     }
 
-    /* Responsivo */
-    @media (max-width: 960px) {
+    /* RESPONSIVO */
+    @media (max-width: 1024px) {
+      .nav-links {
+        font-size: 0.8rem;
+      }
+    }
+
+    @media (max-width: 900px) {
+      .nav {
+        flex-wrap: wrap;
+      }
+
+      .nav-right {
+        flex: 1;
+        justify-content: flex-end;
+      }
+
+      .nav-links {
+        position: absolute;
+        top: 64px;
+        left: 0;
+        right: 0;
+        background: #ffffff;
+        padding: 0.6rem 1.25rem 0.9rem;
+        flex-direction: column;
+        gap: 0.4rem;
+        border-bottom: 1px solid rgba(148,163,184,0.35);
+        transform: translateY(-130%);
+        opacity: 0;
+        pointer-events: none;
+        transition: var(--transition);
+      }
+
+      .nav-links.open {
+        transform: translateY(0);
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      .nav-actions {
+        display: none;
+      }
+
+      .nav-toggle {
+        display: flex;
+      }
+
       .hero-grid,
       #quienes-somos .content-grid,
       .memberships-grid,
@@ -1010,39 +1143,7 @@
       }
 
       .hero {
-        padding-top: 1.8rem;
-      }
-    }
-
-    @media (max-width: 820px) {
-      .nav-links {
-        position: absolute;
-        top: 60px;
-        left: 0;
-        right: 0;
-        background: #ffffff;
-        padding: 0.6rem 1.25rem 0.9rem;
-        flex-direction: column;
-        gap: 0.4rem;
-        border-bottom: 1px solid rgba(148,163,184,0.35);
-        transform: translateY(-120%);
-        opacity: 0;
-        pointer-events: none;
-        transition: var(--transition);
-      }
-
-      .nav-links.open {
-        transform: translateY(0);
-        opacity: 1;
-        pointer-events: auto;
-      }
-
-      .nav-cta {
-        display: none;
-      }
-
-      .nav-toggle {
-        display: flex;
+        padding-top: 2rem;
       }
     }
 
@@ -1050,34 +1151,70 @@
       .hero-title {
         font-size: 1.6rem;
       }
-
       .section-title {
         font-size: 1.35rem;
       }
-
       .container {
         padding-inline: 1rem;
+      }
+      .cart-fab {
+        left: 1rem;
+        right: auto;
       }
     }
   </style>
 </head>
 <body>
-  <!-- Modal genérico -->
-  <div class="modal" id="modal">
+  <!-- MODAL GENÉRICO -->
+  <div class="modal-overlay" id="modal">
     <div class="modal-content">
       <h3 id="modalTitle">Acción completada</h3>
       <p id="modalMessage">Tu operación se ha registrado correctamente.</p>
-      <button class="btn btn-primary" type="button" onclick="closeModal()">Aceptar</button>
+      <div class="modal-footer">
+        <button class="btn btn-primary" type="button" onclick="closeModal()">Aceptar</button>
+      </div>
     </div>
   </div>
 
-  <!-- Header / Navegación -->
+  <!-- MODAL DE PAGO SIMULADO -->
+  <div class="modal-overlay" id="checkoutModal">
+    <div class="modal-content">
+      <h3 id="checkoutModalTitle">Resumen de pago</h3>
+      <p id="checkoutModalMessage">
+        Revisa los detalles de tu compra. Este simulador no genera un cargo real, pero
+        reproduce el flujo de una pasarela de pago segura.
+      </p>
+      <div class="badge-soft" id="orderIdBadge" style="margin-bottom:0.4rem;"></div>
+      <div class="modal-list" id="checkoutItems"></div>
+      <p style="font-size:0.85rem;color:#0f172a;margin-bottom:0.4rem;">
+        Total: <strong id="checkoutTotal"></strong>
+      </p>
+      <div id="checkoutProcessing" style="display:none;">
+        <div class="loader"></div>
+        <p style="font-size:0.8rem;color:#6b7280;margin-bottom:0;">
+          Procesando pago simulado, por favor espera…
+        </p>
+      </div>
+      <div class="modal-footer" id="checkoutButtons">
+        <button class="btn-secondary" type="button" onclick="closeCheckoutModal()">Cancelar</button>
+        <button class="btn btn-primary" type="button" onclick="confirmSimulatedPayment()">Confirmar pago</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- BOTÓN FLOTANTE DE CARRITO -->
+  <div class="cart-fab" onclick="scrollToCart()">
+    Carrito
+    <span class="badge" id="cartFabCount">0</span>
+  </div>
+
+  <!-- HEADER / NAV -->
   <header>
     <div class="container nav">
       <div class="nav-left">
-        <div class="nav-logo">
-          <!-- Ajusta la ruta del logo según tu repositorio -->
-          <img src="assets/logo-osepsa.png" alt="Logo OSEPSA Health Group">
+        <div class="nav-logo-frame">
+          <!-- El archivo debe estar junto a index.html con este nombre -->
+          <img src="Logo Seguros_page-0001.jpg" alt="OSEPSA Health Group Logo" class="navbar-logo">
         </div>
         <div class="nav-brand">
           <span>OSEPSA Health Group</span>
@@ -1085,37 +1222,36 @@
         </div>
       </div>
 
-      <nav class="nav-links" id="navLinks">
-        <a href="#quienes-somos">Quiénes somos</a>
-        <a href="#membresias">Membresías</a>
-        <a href="#informacion-general">Información general</a>
-        <a href="#opiniones">Opiniones</a>
-        <a href="#contrata-ahora">Contrata ahora</a>
-        <a href="#padron-prestadores">Prestadores</a>
-        <a href="#reservar-citas">Reservar citas</a>
-        <a href="#mapa-doctores">Mapa doctores</a>
-        <a href="#contacto">Contacto</a>
-      </nav>
+      <div class="nav-right">
+        <nav class="nav-links" id="navLinks">
+          <a href="#quienes-somos">Quiénes somos</a>
+          <a href="#membresias">Membresías</a>
+          <a href="#informacion-general">Información general</a>
+          <a href="#opiniones">Opiniones</a>
+          <a href="#contrata-ahora">Contrata ahora</a>
+          <a href="#padron-prestadores">Prestadores</a>
+          <a href="#reservar-citas">Reservar citas</a>
+          <a href="#mapa-doctores">Mapa doctores</a>
+          <a href="#contacto">Contacto</a>
+        </nav>
 
-      <div class="nav-cta">
-        <button class="btn btn-outline" type="button" onclick="document.getElementById('reservar-citas').scrollIntoView({behavior:'smooth'})">
-          Reservar cita
-        </button>
-        <button class="btn btn-primary" type="button" onclick="document.getElementById('contrata-ahora').scrollIntoView({behavior:'smooth'})">
-          Contrata ahora
-        </button>
+        <div class="nav-actions">
+          <button class="btn btn-outline" type="button" onclick="document.getElementById('reservar-citas').scrollIntoView({behavior:'smooth'})">
+            Reservar cita
+          </button>
+          <button class="btn btn-primary" type="button" onclick="document.getElementById('contrata-ahora').scrollIntoView({behavior:'smooth'})">
+            Contrata ahora
+          </button>
+        </div>
+
         <button class="nav-toggle" id="navToggle" type="button" aria-label="Abrir menú">
           <span></span><span></span><span></span>
         </button>
       </div>
-
-      <button class="nav-toggle" id="navToggleMobile" type="button" aria-label="Abrir menú">
-        <span></span><span></span><span></span>
-      </button>
     </div>
   </header>
 
-  <!-- Hero -->
+  <!-- HERO -->
   <section class="hero">
     <div class="container hero-grid">
       <div>
@@ -1135,7 +1271,7 @@
           <span class="tag">Protección financiera</span>
         </div>
 
-        <div style="display:flex;gap:0.6rem;flex-wrap:wrap;margin-top:0.3rem;">
+        <div class="hero-cta">
           <button class="btn btn-primary" type="button" onclick="document.getElementById('membresias').scrollIntoView({behavior:'smooth'})">
             Ver membresías
           </button>
@@ -1180,7 +1316,7 @@
     </div>
   </section>
 
-  <!-- Quiénes somos -->
+  <!-- QUIÉNES SOMOS -->
   <section id="quienes-somos">
     <div class="container">
       <div class="section-header" style="text-align:left;max-width:820px;">
@@ -1241,7 +1377,7 @@
     </div>
   </section>
 
-  <!-- Membresías -->
+  <!-- MEMBRESÍAS -->
   <section id="membresias">
     <div class="container">
       <div class="section-header">
@@ -1250,12 +1386,12 @@
         <p class="section-subtitle">
           Las membresías están diseñadas para adaptarse a diferentes perfiles de uso,
           desde cuidados esenciales hasta atención integral con respaldo premium.
-          Los precios mostrados son referenciales y pueden ajustarse cuando se definan las tarifas reales.
+          Los precios mostrados son referenciales y podrán ajustarse cuando se definan las tarifas reales.
         </p>
       </div>
 
       <div class="memberships-grid">
-        <!-- Bronce -->
+        <!-- BRONCE -->
         <article class="membership-card membership-bronze" data-plan="Membresía Bronce – Cuidado Esencial" data-price="49">
           <div class="ribbon"></div>
           <div class="membership-label">Nivel básico</div>
@@ -1283,7 +1419,7 @@
           </div>
         </article>
 
-        <!-- Plata -->
+        <!-- PLATA -->
         <article class="membership-card membership-silver" data-plan="Membresía Plata – Cuidado Familiar" data-price="89">
           <div class="ribbon"></div>
           <div class="membership-label">Nivel familiar</div>
@@ -1312,7 +1448,7 @@
           </div>
         </article>
 
-        <!-- Oro -->
+        <!-- ORO -->
         <article class="membership-card membership-gold" data-plan="Membresía Oro – Atención Premium Total" data-price="149">
           <div class="ribbon"></div>
           <div class="membership-badge">Más popular</div>
@@ -1343,13 +1479,13 @@
         </article>
       </div>
 
-      <!-- Carrito -->
+      <!-- CONTRATA AHORA + CARRITO -->
       <div class="cart-panel" id="contrata-ahora">
         <div class="cart-card">
           <h3>Carrito de membresías</h3>
           <p class="helper-text">
-            Selecciona una o varias membresías y simula el proceso de compra. La integración con
-            un procesador de pagos (por ejemplo, Stripe) puede añadirse posteriormente.
+            Selecciona una o varias membresías y realiza una simulación de compra. En fase productiva,
+            este módulo se conectará con una pasarela de pago real.
           </p>
           <ul class="cart-list" id="cartList"></ul>
           <div class="cart-empty" id="cartEmpty">No hay membresías en el carrito.</div>
@@ -1357,9 +1493,12 @@
             <span>Total</span>
             <span id="cartTotalAmount"></span>
           </div>
-          <button class="btn btn-primary" type="button" onclick="checkoutCart()">
-            Simular pago seguro
-          </button>
+          <div class="cart-actions">
+            <button class="btn-secondary" type="button" onclick="clearCart()">Vaciar carrito</button>
+            <button class="btn btn-primary" type="button" onclick="simulateCheckout()">
+              Simular pago seguro
+            </button>
+          </div>
         </div>
 
         <div class="cart-card">
@@ -1404,7 +1543,7 @@
     </div>
   </section>
 
-  <!-- Información general -->
+  <!-- INFORMACIÓN GENERAL -->
   <section id="informacion-general">
     <div class="container">
       <div class="section-header">
@@ -1450,7 +1589,7 @@
               </div>
               <div class="faq-answer">
                 El modelo inicia con base en Tijuana y podrá ampliarse gradualmente a
-                otras ciudades fronterizas y zonas con alta concentración de población hispana,
+                otras ciudades y zonas con alta concentración de población hispana,
                 mediante convenios con clínicas y especialistas.
               </div>
             </div>
@@ -1501,15 +1640,15 @@
     </div>
   </section>
 
-  <!-- Opiniones -->
+  <!-- OPINIONES -->
   <section id="opiniones">
     <div class="container">
       <div class="section-header">
         <div class="section-kicker">Opiniones</div>
         <h2 class="section-title">Experiencias de personas afiliadas.</h2>
         <p class="section-subtitle">
-          Este módulo utiliza un carrusel de testimonios alimentado desde un arreglo JSON
-          para facilitar su actualización cuando se integren opiniones reales.
+          El carrusel utiliza un arreglo JSON para facilitar la actualización de testimonios
+          cuando se documenten casos reales.
         </p>
       </div>
 
@@ -1530,15 +1669,15 @@
     </div>
   </section>
 
-  <!-- Padrón de prestadores -->
+  <!-- PADRÓN DE PRESTADORES -->
   <section id="padron-prestadores">
     <div class="container">
       <div class="section-header">
         <div class="section-kicker">Padrón de prestadores</div>
         <h2 class="section-title">Red de clínicas, médicos y centros aliados.</h2>
         <p class="section-subtitle">
-          El catálogo se construye de forma dinámica a partir de un arreglo de prestadores,
-          lo que facilita su ampliación conforme se firmen nuevos convenios.
+          El catálogo se genera dinámicamente a partir de un arreglo de prestadores,
+          facilitando su ampliación conforme se firmen nuevos convenios.
         </p>
       </div>
 
@@ -1564,9 +1703,7 @@
             </div>
           </div>
 
-          <div class="provider-list" id="providerList">
-            <!-- Tarjetas generadas por JS -->
-          </div>
+          <div class="provider-list" id="providerList"></div>
         </div>
 
         <aside>
@@ -1576,16 +1713,15 @@
     </div>
   </section>
 
-  <!-- Reservar citas -->
+  <!-- RESERVAR CITAS -->
   <section id="reservar-citas">
     <div class="container">
       <div class="section-header">
         <div class="section-kicker">Reservar citas</div>
         <h2 class="section-title">Agenda digital para programación de consultas.</h2>
         <p class="section-subtitle">
-          Este módulo simula un sistema de reservación de citas que almacena la información
-          en una tabla interna. Posteriormente se puede enlazar con Google Sheets,
-          un backend propio o un sistema de expedientes electrónicos.
+          Este módulo simula el registro de citas en una tabla interna. En una fase posterior
+          se puede vincular con Google Sheets o con un sistema de expediente electrónico.
         </p>
       </div>
 
@@ -1651,9 +1787,8 @@
         <aside class="card">
           <h3 style="font-size:0.95rem;color:var(--secondary);margin-bottom:0.6rem;">Citas registradas (simulación)</h3>
           <p class="helper-text">
-            La siguiente tabla muestra las citas que se capturan en esta sesión. En la
-            implementación productiva, esta información puede enviarse a una base de datos
-            o a una hoja de cálculo en tiempo real.
+            La tabla muestra únicamente los registros de esta sesión. En la versión productiva,
+            cada entrada se enviará a una base de datos o a una hoja de cálculo.
           </p>
 
           <table class="appointments-table">
@@ -1666,16 +1801,14 @@
                 <th>Hora</th>
               </tr>
             </thead>
-            <tbody id="appointmentsTableBody">
-              <!-- Filas generadas por JS -->
-            </tbody>
+            <tbody id="appointmentsTableBody"></tbody>
           </table>
         </aside>
       </div>
     </div>
   </section>
 
-  <!-- Mapa de doctores -->
+  <!-- MAPA DE DOCTORES -->
   <section id="mapa-doctores">
     <div class="container">
       <div class="section-header">
@@ -1714,7 +1847,7 @@
     </div>
   </section>
 
-  <!-- Contacto -->
+  <!-- CONTACTO -->
   <section id="contacto">
     <div class="container">
       <div class="section-header">
@@ -1796,7 +1929,7 @@
     </div>
   </section>
 
-  <!-- Footer -->
+  <!-- FOOTER -->
   <footer>
     <div class="container footer-grid">
       <div>
@@ -1817,31 +1950,26 @@
     </div>
   </footer>
 
-  <!-- Scripts -->
+  <!-- SCRIPTS -->
   <script
     src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
     crossorigin="">
   </script>
   <script>
-    // ---------- Navegación ----------
-    const navToggle = document.getElementById('navToggleMobile');
+    // ---------- NAV ----------
+    const navToggle = document.getElementById('navToggle');
     const navLinks = document.getElementById('navLinks');
 
-    if (navToggle) {
-      navToggle.addEventListener('click', () => {
-        navLinks.classList.toggle('open');
-      });
-    }
-
-    // Cerrar menú al hacer clic en un link
-    navLinks.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        navLinks.classList.remove('open');
-      });
+    navToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('open');
     });
 
-    // ---------- Modal reutilizable ----------
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => navLinks.classList.remove('open'));
+    });
+
+    // ---------- MODAL GENERAL ----------
     const modal = document.getElementById('modal');
     const modalTitle = document.getElementById('modalTitle');
     const modalMessage = document.getElementById('modalMessage');
@@ -1851,49 +1979,85 @@
       modalMessage.textContent = message;
       modal.classList.add('open');
     }
+    function closeModal() { modal.classList.remove('open'); }
+    modal.addEventListener('click', e => { if (e.target === modal) closeModal(); });
 
-    function closeModal() {
-      modal.classList.remove('open');
-    }
-
-    modal.addEventListener('click', (e) => {
-      if (e.target === modal) closeModal();
-    });
-
-    // ---------- Carrito de membresías ----------
+    // ---------- CARRITO ----------
     const cartList = document.getElementById('cartList');
     const cartEmpty = document.getElementById('cartEmpty');
     const cartTotal = document.getElementById('cartTotal');
     const cartTotalAmount = document.getElementById('cartTotalAmount');
+    const cartFabCount = document.getElementById('cartFabCount');
+
     let cart = [];
+
+    function saveCart() {
+      try {
+        localStorage.setItem('osepsaCart', JSON.stringify(cart));
+      } catch(e) {}
+    }
+
+    function loadCart() {
+      try {
+        const saved = localStorage.getItem('osepsaCart');
+        if (saved) cart = JSON.parse(saved);
+      } catch(e) { cart = []; }
+    }
+
+    function updateCartFab() {
+      const totalItems = cart.reduce((sum, item) => sum + item.qty, 0);
+      cartFabCount.textContent = totalItems;
+    }
 
     function renderCart() {
       cartList.innerHTML = '';
       if (cart.length === 0) {
         cartEmpty.style.display = 'block';
         cartTotal.style.display = 'none';
+        updateCartFab();
+        saveCart();
         return;
       }
       cartEmpty.style.display = 'none';
+
       let total = 0;
       cart.forEach((item, index) => {
-        total += item.price;
+        total += item.price * item.qty;
         const li = document.createElement('li');
         li.className = 'cart-item';
         li.innerHTML = `
           <span>${item.plan}</span>
           <span>
-            US$ ${item.price.toFixed(2)}
+            <button class="btn-qty" type="button" data-index="${index}" data-action="dec">-</button>
+            <span class="qty-display">${item.qty}</span>
+            <button class="btn-qty" type="button" data-index="${index}" data-action="inc">+</button>
+          </span>
+          <span>
+            US$ ${(item.price * item.qty).toFixed(2)}
             <button type="button" class="btn-remove" data-index="${index}">Quitar</button>
           </span>
         `;
         cartList.appendChild(li);
       });
+
       cartTotalAmount.textContent = 'US$ ' + total.toFixed(2);
       cartTotal.style.display = 'flex';
+      updateCartFab();
+      saveCart();
 
-      // Asignar eventos de quitar
-      document.querySelectorAll('.btn-remove').forEach(btn => {
+      // Eventos de cantidad
+      cartList.querySelectorAll('.btn-qty').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const idx = parseInt(btn.getAttribute('data-index'), 10);
+          const action = btn.getAttribute('data-action');
+          if (action === 'inc') cart[idx].qty += 1;
+          if (action === 'dec' && cart[idx].qty > 1) cart[idx].qty -= 1;
+          renderCart();
+        });
+      });
+
+      // Eventos de quitar
+      cartList.querySelectorAll('.btn-remove').forEach(btn => {
         btn.addEventListener('click', () => {
           const idx = parseInt(btn.getAttribute('data-index'), 10);
           cart.splice(idx, 1);
@@ -1902,23 +2066,108 @@
       });
     }
 
+    function addToCart(plan, price) {
+      const existing = cart.find(item => item.plan === plan);
+      if (existing) {
+        existing.qty += 1;
+      } else {
+        cart.push({ plan, price, qty: 1 });
+      }
+      renderCart();
+      openModal('Membresía agregada', 'La membresía se añadió al carrito de forma correcta.');
+    }
+
+    function clearCart() {
+      if (cart.length === 0) {
+        openModal('Carrito vacío', 'No hay elementos que eliminar.');
+        return;
+      }
+      cart = [];
+      renderCart();
+      openModal('Carrito vaciado', 'Se eliminaron todas las membresías del carrito.');
+    }
+
     document.querySelectorAll('.add-to-cart').forEach(btn => {
       btn.addEventListener('click', () => {
         const card = btn.closest('.membership-card');
         const plan = card.getAttribute('data-plan');
         const price = parseFloat(card.getAttribute('data-price') || '0');
-        cart.push({ plan, price });
-        renderCart();
-        openModal('Membresía agregada', 'La membresía se añadió al carrito de forma correcta.');
+        addToCart(plan, price);
       });
     });
 
-    function checkoutCart() {
+    function scrollToCart() {
+      document.getElementById('contrata-ahora').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // ---------- SIMULACIÓN DE CHECKOUT ----------
+    const checkoutModal = document.getElementById('checkoutModal');
+    const checkoutItems = document.getElementById('checkoutItems');
+    const checkoutTotalSpan = document.getElementById('checkoutTotal');
+    const checkoutProcessing = document.getElementById('checkoutProcessing');
+    const checkoutButtons = document.getElementById('checkoutButtons');
+    const orderIdBadge = document.getElementById('orderIdBadge');
+
+    function generateOrderId() {
+      const now = new Date();
+      return 'OSE-' + now.getFullYear().toString().slice(-2) +
+        (now.getMonth()+1).toString().padStart(2,'0') +
+        now.getDate().toString().padStart(2,'0') + '-' +
+        Math.floor(1000 + Math.random()*9000);
+    }
+
+    function simulateCheckout() {
       if (cart.length === 0) {
         openModal('Carrito vacío', 'Agrega al menos una membresía antes de simular el pago.');
         return;
       }
-      openModal('Simulación de pago', 'En la versión productiva, aquí se integrará un procesador de pagos seguro (ej. Stripe).');
+      // Validar datos mínimos del formulario de contratación
+      const name = document.getElementById('checkoutName').value.trim();
+      const email = document.getElementById('checkoutEmail').value.trim();
+      const phone = document.getElementById('checkoutPhone').value.trim();
+      const country = document.getElementById('checkoutCountry').value;
+
+      if (!name || !email || !phone || !country) {
+        openModal('Datos incompletos', 'Por favor completa los datos básicos de contratación antes de simular el pago.');
+        return;
+      }
+
+      // Construir resumen
+      checkoutItems.innerHTML = '';
+      let total = 0;
+      cart.forEach(item => {
+        const line = document.createElement('div');
+        line.textContent = `${item.plan} x${item.qty} — US$ ${(item.price * item.qty).toFixed(2)}`;
+        checkoutItems.appendChild(line);
+        total += item.price * item.qty;
+      });
+      checkoutTotalSpan.textContent = 'US$ ' + total.toFixed(2);
+      checkoutProcessing.style.display = 'none';
+      checkoutButtons.style.display = 'flex';
+      const orderId = generateOrderId();
+      orderIdBadge.textContent = 'Orden simulada: ' + orderId;
+
+      checkoutModal.classList.add('open');
+    }
+
+    function closeCheckoutModal() {
+      checkoutModal.classList.remove('open');
+    }
+
+    checkoutModal.addEventListener('click', e => {
+      if (e.target === checkoutModal) closeCheckoutModal();
+    });
+
+    function confirmSimulatedPayment() {
+      checkoutProcessing.style.display = 'block';
+      checkoutButtons.style.display = 'none';
+
+      setTimeout(() => {
+        checkoutProcessing.style.display = 'none';
+        checkoutButtons.style.display = 'flex';
+        closeCheckoutModal();
+        openModal('Pago simulado aprobado', 'El flujo de pago se completó correctamente. En un entorno real, aquí se recibiría la confirmación de la pasarela de pago.');
+      }, 2000);
     }
 
     // ---------- FAQ ----------
@@ -1928,7 +2177,7 @@
       });
     });
 
-    // ---------- Opiniones ----------
+    // ---------- OPINIONES ----------
     const testimonials = [
       {
         text: 'La atención es rápida y eficiente. La membresía ha sido un apoyo real para organizar la salud de mi familia.',
@@ -1936,12 +2185,12 @@
         role: 'Afiliada a Membresía Plata (texto ficticio)'
       },
       {
-        text: 'El proceso digital es sencillo y claro. Me siento acompañada desde la programación de citas hasta los resultados de laboratorio.',
+        text: 'El proceso digital es sencillo y claro. Me siento acompañado desde la programación de citas hasta los resultados de laboratorio.',
         author: 'Roberto L.',
         role: 'Afiliado a Membresía Oro (texto ficticio)'
       },
       {
-        text: 'Poder acceder a telemedicina y consultas presenciales con la misma membresía facilita mucho la planificación del gasto en salud.',
+        text: 'Poder acceder a telemedicina y consultas presenciales con la misma membresía facilita la planificación del gasto en salud.',
         author: 'María P.',
         role: 'Afiliada a Membresía Bronce (texto ficticio)'
       }
@@ -2005,7 +2254,7 @@
     renderTestimonial(testimonialIndex);
     startTestimonialAuto();
 
-    // ---------- Padrón de prestadores y mapas ----------
+    // ---------- PADRÓN + MAPAS ----------
     const providers = [
       {
         name: 'Clínica Santa Cruz',
@@ -2093,7 +2342,6 @@
 
     renderProviders();
 
-    // Mapas Leaflet
     const tijuanaCenter = [32.5149, -117.0382];
 
     const providersMap = L.map('providersMap').setView(tijuanaCenter, 12);
@@ -2148,18 +2396,17 @@
       });
     }
 
-    // Ajustar mapas cuando sean visibles
     setTimeout(() => {
       providersMap.invalidateSize();
       doctorsMap.invalidateSize();
     }, 600);
 
-    // ---------- Reservar citas ----------
+    // ---------- CITAS ----------
     const appointmentForm = document.getElementById('appointmentForm');
     const appointmentsTableBody = document.getElementById('appointmentsTableBody');
     const appointments = [];
 
-    appointmentForm.addEventListener('submit', (e) => {
+    appointmentForm.addEventListener('submit', e => {
       e.preventDefault();
       const data = {
         name: document.getElementById('appointmentName').value.trim(),
@@ -2170,7 +2417,6 @@
         provider: document.getElementById('appointmentProvider').value.trim(),
         notes: document.getElementById('appointmentNotes').value.trim()
       };
-      // Validación simple
       if (!data.name || !data.membership || !data.specialty || !data.date || !data.time || !data.notes) {
         openModal('Datos incompletos', 'Por favor completa todos los campos obligatorios del formulario de cita.');
         return;
@@ -2178,7 +2424,7 @@
       appointments.push(data);
       renderAppointments();
       appointmentForm.reset();
-      openModal('Cita registrada', 'La cita se registró en la tabla interna. En la versión productiva se enviará a una base de datos o Google Sheets.');
+      openModal('Cita registrada', 'La cita se registró en la tabla interna. En producción se enviará a una base de datos o Google Sheets.');
     });
 
     function renderAppointments() {
@@ -2196,9 +2442,9 @@
       });
     }
 
-    // ---------- Formulario de contacto ----------
+    // ---------- CONTACTO ----------
     const contactForm = document.getElementById('contactForm');
-    contactForm.addEventListener('submit', (e) => {
+    contactForm.addEventListener('submit', e => {
       e.preventDefault();
       const name = document.getElementById('contactName').value.trim();
       const phone = document.getElementById('contactPhone').value.trim();
@@ -2214,6 +2460,10 @@
       contactForm.reset();
       openModal('Mensaje enviado', 'Tu mensaje se registró correctamente en esta versión demostrativa. En producción se enviará a un servicio de correo o backend.');
     });
+
+    // ---------- INICIALIZAR ----------
+    loadCart();
+    renderCart();
   </script>
 </body>
 </html>
