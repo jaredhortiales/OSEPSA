@@ -1338,6 +1338,31 @@
 #membresias .membership-perks li.perks-heading::before {
   display: none;
 }
+/* =========================
+   VIDEO – QUIÉNES SOMOS
+   Tamaño mediano / pequeño
+========================= */
+
+.quienes-video{
+  max-width: 680px;        /* tamaño controlado */
+  margin: 1.5rem auto 0;  /* centrado */
+  padding: 0 0.5rem;
+}
+
+.quienes-video video{
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  border-radius: 0.9rem;
+  display: block;
+  background: #000;
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.12);
+}
+
+/* Ajuste móvil */
+@media (max-width: 640px){
+  .quienes-video{
+    ma
 
   </style>
 </head>
@@ -2739,6 +2764,7 @@
   </script>
 </body>
 </html>
+
 
 
 
