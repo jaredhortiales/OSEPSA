@@ -1290,6 +1290,55 @@
         right: auto;
       }
     }
+    /* ===================================================
+   FIX DEFINITIVO – LISTAS EN MEMBRESÍAS (SIN DOBLE VIÑETA)
+   =================================================== */
+
+#membresias ul,
+#membresias li {
+  list-style: none !important;
+}
+
+/* Lista base */
+#membresias .membership-perks {
+  padding-left: 0 !important;
+  margin: 0.6rem 0 0;
+}
+
+/* Ítems */
+#membresias .membership-perks li {
+  position: relative;
+  padding-left: 1rem;
+  margin: 0.35rem 0;
+  font-size: 0.88rem;
+  line-height: 1.45;
+  color: #334155;
+}
+
+/* Punto limpio (único punto visible) */
+#membresias .membership-perks li::before {
+  content: "";
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--primary);
+  position: absolute;
+  left: 0;
+  top: 0.6rem;
+}
+
+/* Subtítulo "Servicios Complementarios" */
+#membresias .membership-perks li.perks-heading {
+  padding-left: 0;
+  margin-top: 0.8rem;
+  font-weight: 600;
+  color: var(--secondary);
+}
+
+#membresias .membership-perks li.perks-heading::before {
+  display: none;
+}
+
   </style>
 </head>
 <body>
@@ -2682,6 +2731,7 @@
   </script>
 </body>
 </html>
+
 
 
 
