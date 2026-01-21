@@ -487,6 +487,59 @@
       gap: 0.45rem;
     }
 
+/* ===== Membresías: identidad visual por plan ===== */
+
+.membership-silver { border: 1.5px solid rgba(192,192,192,.55); }
+.membership-gold { border: 1.5px solid rgba(212,175,55,.55); }
+.membership-platinum { border: 1.5px solid rgba(107,114,128,.55); }
+.membership-plus { border: 1.5px solid rgba(15,23,42,.40); }
+
+.membership-silver .ribbon {
+  background-image: radial-gradient(circle at top right, rgba(192,192,192,.55), transparent 62%);
+}
+.membership-gold .ribbon {
+  background-image: radial-gradient(circle at top right, rgba(212,175,55,.55), transparent 62%);
+}
+.membership-platinum .ribbon {
+  background-image: radial-gradient(circle at top right, rgba(107,114,128,.55), transparent 62%);
+}
+.membership-plus .ribbon {
+  background-image: radial-gradient(circle at top right, rgba(15,23,42,.45), transparent 62%);
+}
+
+.membership-silver .membership-name { color: #6b7280; }
+.membership-gold .membership-name { color: #b8860b; }
+.membership-platinum .membership-name { color: var(--platinum); }
+.membership-plus .membership-name { color: var(--plus); }
+
+.membership-silver .membership-label {
+  background: rgba(192,192,192,.14);
+  border: 1px solid rgba(192,192,192,.35);
+  color: #4b5563;
+}
+.membership-gold .membership-label {
+  background: rgba(212,175,55,.14);
+  border: 1px solid rgba(212,175,55,.35);
+  color: #6b4f00;
+}
+.membership-platinum .membership-label {
+  background: rgba(107,114,128,.14);
+  border: 1px solid rgba(107,114,128,.35);
+  color: #374151;
+}
+.membership-plus .membership-label {
+  background: rgba(15,23,42,.08);
+  border: 1px solid rgba(15,23,42,.25);
+  color: #0f172a;
+}
+
+.membership-perks li { line-height: 1.35; }
+.membership-perks .perks-heading {
+  font-weight: 700;
+  margin-top: .35rem;
+  list-style: none;
+  padding-left: 0;
+}
     .membership-label {
       font-size: 0.76rem;
       text-transform: uppercase;
@@ -2492,6 +2545,7 @@
   </script>
 </body>
 </html>
+
 
 
 
