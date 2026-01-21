@@ -1363,6 +1363,27 @@
 @media (max-width: 640px){
   .quienes-video{
     ma
+/* =========================
+   ESPACIADO – QUIÉNES SOMOS
+========================= */
+
+/* Espacio después del texto principal */
+#quienes-somos .section-subtitle,
+#quienes-somos p {
+  margin-bottom: 1.8rem;
+}
+
+/* Contenedor del video */
+.quienes-video {
+  margin-top: 1.2rem;
+  margin-bottom: 3rem; /* separa del siguiente bloque */
+}
+
+/* Evita que las cards se peguen al video */
+#quienes-somos + section,
+#quienes-somos .content-grid {
+  margin-top: 2.5rem;
+}
 
   </style>
 </head>
@@ -2764,6 +2785,7 @@
   </script>
 </body>
 </html>
+
 
 
 
