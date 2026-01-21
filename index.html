@@ -381,20 +381,33 @@
     }
 
     .section-subtitle {
-      font-size: 0.9rem;
-      color: #64748b;
-      max-width: 520px;
-      margin: 0.4rem auto 0;
-    }
+  font-size: 0.95rem;
+  color: #64748b;
+  max-width: 74ch;
+  line-height: 1.55;
+  margin: 0.35rem auto 0;
+}
 
-    /* QUIÉNES SOMOS */
-    #quienes-somos .content-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
-      gap: 2rem;
-      align-items: start;
-    }
+/* QUIÉNES SOMOS */
+#quienes-somos .section-header {
+  max-width: 980px;
+  margin-left: auto;
+  margin-right: auto;
+}
 
+#quienes-somos p {
+  max-width: 78ch;
+  line-height: 1.6;
+}
+
+#quienes-somos .content-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+  gap: 1.4rem;
+  align-items: start;
+}
+
+   
     .card {
       background: #ffffff;
       border-radius: var(--radius-lg);
@@ -410,9 +423,12 @@
     }
 
     .card p {
-      font-size: 0.88rem;
-      color: #4b5563;
-    }
+  font-size: 0.9rem;
+  color: #4b5563;
+  line-height: 1.55;
+  margin: 0.55rem 0 0.65rem;
+}
+
 
     .pill-label {
       display: inline-flex;
@@ -2628,6 +2644,7 @@
   </script>
 </body>
 </html>
+
 
 
 
