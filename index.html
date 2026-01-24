@@ -37,23 +37,39 @@
   --shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.12);
   --transition: all 0.25s ease;
 }
-/* ===============================
-   VIDEO INSTITUCIONAL YOUTUBE
-   =============================== */
-.quienes-video {
-  max-width: 720px;
-  margin: 24px auto 0 auto;
+/* =========================
+   VIDEO INSTITUCIONAL (YouTube)
+   ========================= */
+.video-card{
+  padding: 18px;
 }
 
-.quienes-video iframe {
+.video-wrap{
+  width: 100%;
+  margin-top: 12px;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #000;
+  box-shadow: 0 12px 28px rgba(15, 23, 42, 0.14);
+}
+
+.video-wrap iframe{
   width: 100%;
   aspect-ratio: 16 / 9;
   border: 0;
-  border-radius: 14px;
   display: block;
-  background: #000;
-  box-shadow: 0 12px 28px rgba(15, 23, 42, 0.18);
 }
+
+/* En pantallas grandes, que no se vea “enano” */
+@media (min-width: 1024px){
+  .video-card{
+    padding: 22px;
+  }
+  .video-wrap{
+    border-radius: 18px;
+  }
+}
+
 
 
     * {
@@ -1575,15 +1591,21 @@
   de una intervención quirúrgica.
         </p>
       </div>
-      <!-- VIDEO INSTITUCIONAL (YouTube) -->
-<div class="quienes-video">
-  <iframe
-    src="https://www.youtube.com/embed/f1Dvo4tJCwk?rel=0&modestbranding=1"
-    title="Video institucional OSEPSA"
-    frameborder="0"
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-    allowfullscreen>
-  </iframe>
+    <!-- VIDEO INSTITUCIONAL (YouTube) -->
+<div class="content-grid">
+  <div class="card video-card">
+    <div class="pill-label"><span class="dot"></span> Video institucional</div>
+
+    <div class="video-wrap">
+      <iframe
+        src="https://www.youtube-nocookie.com/embed/f1Dvo4tJCwk?rel=0&modestbranding=1"
+        title="Video institucional OSEPSA"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen>
+      </iframe>
+    </div>
+  </div>
 </div>
 
 
@@ -2806,6 +2828,7 @@
   </script>
 </body>
 </html>
+
 
 
 
