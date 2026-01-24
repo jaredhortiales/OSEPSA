@@ -1404,26 +1404,6 @@
 #membresias .membership-perks li.perks-heading::before {
   display: none;
 }
-/* =========================
-   VIDEO – QUIÉNES SOMOS
-   Tamaño mediano / pequeño
-========================= */
-
-.quienes-video{
-  max-width: 680px;        /* tamaño controlado */
-  margin: 1.5rem auto 0;  /* centrado */
-  padding: 0 0.5rem;
-}
-
-.quienes-video video{
-  width: 100%;
-  height: auto;
-  aspect-ratio: 16 / 9;
-  border-radius: 0.9rem;
-  display: block;
-  background: #000;
-  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.12);
-}
 
 
 /* =========================
@@ -1437,16 +1417,19 @@
 }
 
 /* Contenedor del video */
-.quienes-video {
-  margin-top: 1.2rem;
-  margin-bottom: 3rem; /* separa del siguiente bloque */
+#quienes-somos .content-grid.video-row{
+  grid-template-columns: 1fr;
+  margin: 28px 0 56px;
 }
 
-/* Evita que las cards se peguen al video */
-#quienes-somos + section,
-#quienes-somos .content-grid {
-  margin-top: 2.5rem;
+/* Card del video */
+#quienes-somos .video-card{
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 22px;
 }
+
+
 
   </style>
 </head>
@@ -2859,6 +2842,7 @@
   </script>
 </body>
 </html>
+
 
 
 
