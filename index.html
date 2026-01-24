@@ -82,6 +82,26 @@
 .quienes-video {
   margin-bottom: 64px;
 }
+/* =========================================================
+   FIX: Video centrado + espacios correctos en "Quiénes somos"
+   ========================================================= */
+
+/* Este bloque hace que el grid del video sea de 1 columna (sin hueco a la derecha) */
+#quienes-somos .content-grid.video-row{
+  grid-template-columns: 1fr !important;
+}
+
+/* Controla ancho y centra el card del video */
+#quienes-somos .video-card{
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 22px;
+}
+
+/* Espacio real entre bloques (video -> misión/visión/valores) */
+#quienes-somos .content-grid.video-row{
+  margin: 20px 0 44px;
+}
 
 
 
@@ -1605,7 +1625,7 @@
         </p>
       </div>
     <!-- VIDEO INSTITUCIONAL (YouTube) -->
-<div class="content-grid">
+<div class="content-grid video-row">
   <div class="card video-card">
     <div class="pill-label"><span class="dot"></span> Video institucional</div>
 
@@ -2841,6 +2861,7 @@
   </script>
 </body>
 </html>
+
 
 
 
